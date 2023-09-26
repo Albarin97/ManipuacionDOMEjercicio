@@ -47,7 +47,7 @@ const profileBtn = document.getElementById('btnName');
 
 profileBtn.addEventListener('click', () => {
     //username.textContent = inputName.value;
-    users.user3 = {
+    users.user3 = ({
         id: 3,
         user_name: inputName.value,
         description: inputDesc.value,
@@ -57,7 +57,7 @@ profileBtn.addEventListener('click', () => {
                 'Rammstein', 'AM', 'The Hu', 'Slipknot'
             ]
         }
-    }
+    });
     console.log(users);
     actualizar();
 });
@@ -105,6 +105,7 @@ const createDescription = () => {
     }
     return userElements;
 }
+//<h1></h1>
 
 const populateElements = (user, userElements) => {
     userElements.user_name.textContent = user.user_name;
@@ -119,9 +120,14 @@ const populateElements = (user, userElements) => {
     userElements.bands = bandList;
     return userElements;
 }
+//<h1>Albar</h1>
+//bands[<p>banda1<p>,<p>banda1<p>,<p>banda1<p>,<p>banda1<p>, ]
 
 const renderElements = (card, elemements) => {
-    card.append(elemements.user_name, elemements.age, elemements.description, elemements.bands.value);
+    card.append(elemements.user_name, elemements.age, elemements.description);
+    elemements.bands.forEach(b => {
+        card.append(b);
+    });
 }
 
 const actualizar = () => {
